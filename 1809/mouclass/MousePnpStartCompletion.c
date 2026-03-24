@@ -1,0 +1,1 @@
+/*\n * XREFs of MousePnpStartCompletion @ 0x1C0004230\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall MousePnpStartCompletion(__int64 a1, __int64 a2, PIO_WORKITEM *a3)\n{\n  IoQueueWorkItem(*a3, MouseStartWorker, DelayedWorkQueue, a3);\n  return 3221225494LL;\n}\n

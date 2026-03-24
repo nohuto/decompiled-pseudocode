@@ -1,0 +1,1 @@
+/*\n * XREFs of j__guard_dispatch_icall @ 0x1C0008010\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n// attributes: thunk\n__int64 __fastcall j__guard_dispatch_icall()\n{\n  __int64 (*v0)(void); // rax\n\n  return v0();\n}\n

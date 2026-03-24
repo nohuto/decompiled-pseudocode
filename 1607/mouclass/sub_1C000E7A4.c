@@ -1,0 +1,1 @@
+/*\n * XREFs of sub_1C000E7A4 @ 0x1C000E7A4\n * Callers:\n *     DriverEntry @ 0x1C000E000 (DriverEntry.c)\n * Callees:\n *     <none>\n */\n\nuintptr_t sub_1C000E7A4()\n{\n  uintptr_t result; // rax\n\n  result = _security_cookie;\n  if ( !_security_cookie || _security_cookie == 0x2B992DDFA232LL )\n    __fastfail(6u);\n  return result;\n}\n

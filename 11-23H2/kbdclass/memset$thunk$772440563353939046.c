@@ -1,0 +1,1 @@
+/*\n * XREFs of memset$thunk$772440563353939046 @ 0x1C0010010\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n// attributes: thunk\nvoid *__cdecl memset_thunk_772440563353939046(void *a1, int Val, size_t Size)\n{\n  return memset(a1, Val, Size);\n}\n

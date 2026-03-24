@@ -1,0 +1,1 @@
+/*\n * XREFs of __security_init_cookie @ 0x1C000E7E4\n * Callers:\n *     GsDriverEntry @ 0x1C000E000 (GsDriverEntry.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl _security_init_cookie()\n{\n  if ( !_security_cookie || _security_cookie == 0x2B992DDFA232LL )\n    __fastfail(6u);\n  _security_cookie_complement = ~_security_cookie;\n}\n

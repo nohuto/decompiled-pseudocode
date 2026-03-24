@@ -1,0 +1,1 @@
+/*\n * XREFs of __memset_query @ 0x1C0003700\n * Callers:\n *     __memset_repmovs @ 0x1C0003680 (__memset_repmovs.c)\n * Callees:\n *     __cpu_features_init @ 0x1C0003110 (__cpu_features_init.c)\n */\n\nvoid _memset_query()\n{\n  _cpu_features_init();\n}\n

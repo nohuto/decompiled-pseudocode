@@ -1,0 +1,1 @@
+/*\n * XREFs of sub_1C0008020 @ 0x1C0008020\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n// attributes: thunk\n__int64 __fastcall sub_1C0008020(char *a1, unsigned __int8 a2, unsigned __int64 a3)\n{\n  return sub_1C0006F00(a1, a2, a3);\n}\n

@@ -1,0 +1,1 @@
+/*\n * XREFs of __GSHandlerCheck @ 0x1C0002958\n * Callers:\n *     <none>\n * Callees:\n *     sub_1C000297C @ 0x1C000297C (sub_1C000297C.c)\n */\n\n__int64 __fastcall _GSHandlerCheck(__int64 a1, __int64 a2, __int64 a3, __int64 a4)\n{\n  sub_1C000297C(a2, a4, *(_QWORD *)(a4 + 56));\n  return 1LL;\n}\n

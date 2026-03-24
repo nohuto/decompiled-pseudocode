@@ -1,0 +1,1 @@
+/*\n * XREFs of MouSyncComplete @ 0x1C0001680\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall MouSyncComplete(__int64 a1, __int64 a2, struct _KEVENT *a3)\n{\n  KeSetEvent(a3, 0, 0);\n  return 3221225494LL;\n}\n

@@ -1,0 +1,1 @@
+/*\n * XREFs of DriverEntry @ 0x1C000F010\n * Callers:\n *     <none>\n * Callees:\n *     sub_1C000F044 @ 0x1C000F044 (sub_1C000F044.c)\n *     sub_1C000F500 @ 0x1C000F500 (sub_1C000F500.c)\n */\n\nNTSTATUS __stdcall DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)\n{\n  sub_1C000F044();\n  return sub_1C000F500(DriverObject);\n}\n

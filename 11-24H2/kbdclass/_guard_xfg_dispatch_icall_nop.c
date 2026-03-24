@@ -1,0 +1,1 @@
+/*\n * XREFs of _guard_xfg_dispatch_icall_nop @ 0x1C0007330\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\n// attributes: thunk\n__int64 __fastcall guard_xfg_dispatch_icall_nop()\n{\n  __int64 (*v0)(void); // rax\n\n  return v0();\n}\n

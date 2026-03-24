@@ -1,0 +1,1 @@
+/*\n * XREFs of __guard_ss_verify_failure_default @ 0x1C0002EF0\n * Callers:\n *     __guard_ss_verify_failure @ 0x1C0002EC0 (__guard_ss_verify_failure.c)\n * Callees:\n *     <none>\n */\n\nvoid __noreturn _guard_ss_verify_failure_default()\n{\n  __fastfail(0x2Cu);\n}\n

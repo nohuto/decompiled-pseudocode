@@ -1,0 +1,1 @@
+/*\n * XREFs of _guard_dispatch_icall_nop @ 0x1C0006B50\n * Callers:\n *     _guard_dispatch_icall @ 0x1C0006B20 (_guard_dispatch_icall.c)\n *     _guard_xfg_dispatch_icall_nop @ 0x1C0006B80 (_guard_xfg_dispatch_icall_nop.c)\n * Callees:\n *     <none>\n */\n\n__int64 __fastcall guard_dispatch_icall_nop()\n{\n  __int64 (*v0)(void); // rax\n\n  return v0();\n}\n

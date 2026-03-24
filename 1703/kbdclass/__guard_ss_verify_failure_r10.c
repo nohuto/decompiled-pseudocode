@@ -1,0 +1,1 @@
+/*\n * XREFs of __guard_ss_verify_failure_r10 @ 0x1C0002EE2\n * Callers:\n *     <none>\n * Callees:\n *     <none>\n */\n\nvoid _guard_ss_verify_failure_r10()\n{\n  JUMPOUT(0x1C0002EC3LL);\n}\n

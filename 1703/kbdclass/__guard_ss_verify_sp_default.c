@@ -1,0 +1,1 @@
+/*\n * XREFs of __guard_ss_verify_sp_default @ 0x1C0002F50\n * Callers:\n *     __guard_ss_verify_sp @ 0x1C0002F40 (__guard_ss_verify_sp.c)\n * Callees:\n *     <none>\n */\n\nvoid _guard_ss_verify_sp_default()\n{\n  ;\n}\n

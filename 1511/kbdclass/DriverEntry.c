@@ -1,0 +1,1 @@
+/*\n * XREFs of DriverEntry @ 0x1C000F000\n * Callers:\n *     <none>\n * Callees:\n *     __security_init_cookie @ 0x1C000F780 (__security_init_cookie.c)\n */\n\nNTSTATUS __stdcall DriverEntry(PDRIVER_OBJECT DriverObject, PUNICODE_STRING RegistryPath)\n{\n  PDRIVER_OBJECT v2; // r8\n\n  _security_init_cookie();\n  return sub_1C000F020(v2);\n}\n

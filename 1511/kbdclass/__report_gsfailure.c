@@ -1,0 +1,1 @@
+/*\n * XREFs of __report_gsfailure @ 0x1C0006500\n * Callers:\n *     __security_check_cookie @ 0x1C0002DC0 (__security_check_cookie.c)\n * Callees:\n *     <none>\n */\n\nvoid __cdecl __noreturn _report_gsfailure(uintptr_t StackCookie)\n{\n  __fastfail(2u);\n}\n
